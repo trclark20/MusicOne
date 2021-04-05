@@ -1,0 +1,166 @@
+:root {
+  --menu-button-hover-color: grey;
+  --title-bar-color: #171616;
+  --title-bar-context-menu-color: #171616;
+  --title-bar-context-menu-border-color: #0a0a0a
+}
+
+html, body {
+  height: 100%;
+  font-family: sans-serif;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+
+  display: flex;
+  flex-direction: column;
+  background: grey;
+}
+
+#title-bar {
+  background-color: var(--title-bar-color);
+  height: 25px;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  border: 0;
+  outline: none;
+
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  user-select: none;
+  -webkit-app-region: drag;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0 0px;
+  text-align: center;
+  vertical-align: middle;
+  color: grey;
+}
+
+ul li a {
+  display: inline-block;
+  font-family: sans-serif;
+  color: grey;
+  text-align: center;
+  padding: 5px;
+  padding-bottom: 2px;
+  text-decoration: none;
+}
+
+.dropdown-menu {
+  border: none;
+  outline: none;
+  background-color: inherit;
+  text-align: center;
+  vertical-align: middle;
+
+  height: auto;
+  width: auto;
+  -webkit-app-region: no-drag;
+}
+
+.dropdown-menu:hover > a {
+  background-color: var(--menu-button-hover-color);
+  color: white;
+}
+
+.dropdown-content {
+  border: 1px var(--title-bar-context-menu-border-color) solid;
+  position: absolute;
+  display: none;
+  z-index: 1;
+  background-color: var(--title-bar-context-menu-color);
+}
+
+.dropdown-content li:hover {
+  background-color: grey;
+  color: white;
+}
+
+ul.dropdown-content li {
+  width: auto;
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+  padding: 5px 50px 5px 50px;
+}
+
+.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+}
+
+.activeMenu > a {
+  background-color: var(--menu-button-hover-color);
+  color: white;
+}
+
+#dummy-menu {
+  display: flex;
+  flex: 1;
+  width: auto;
+}
+
+#title-bar-buttons * {
+  float: right;
+  border: none;
+  background-color: inherit;
+  color: grey;
+
+  position: relative;
+  height: 100%;
+  width: 25px;
+  -webkit-app-region: no-drag;
+}
+
+#title-bar-buttons *:focus {
+  border: none;
+  outline: none;
+}
+
+#title-bar-buttons *:hover {
+  background-color: var(--menu-button-hover-color);
+  color: white;
+}
+
+#close-button:hover {
+  background-color: red;
+}
+
+#content {
+  background-color: #242322;
+  flex: 2;
+}
+
+#bottom-bar {
+  flex: 3;
+  min-height: 100px;
+  max-height: 100px;
+  background: var(--title-bar-color);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+#play-button {
+  width: 50px;
+  height: 50px;
+  color: white;
+  font-size: 50px;
+}
+
+#play-button:hover {
+  color: black;
+}
