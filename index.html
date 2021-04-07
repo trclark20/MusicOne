@@ -10,13 +10,6 @@
       <li tabindex="0" class='dropdown-menu'><a>File</a>
         <ul class='dropdown-content'>
           <li id='open-file'>Open</li>
-          <li id='open-file'>Open</li>
-          <li id='open-file'>Open</li>
-          <li id='open-file'>Open</li>
-          <li id='open-file'>Open</li>
-          <li id='open-file'>Open</li>
-          <li id='open-file'>Open</li>
-          <li id='open-file'>Open</li>
         </ul>
       </li>
       <li tabindex="0" class='dropdown-menu'><a>Test</a>
@@ -42,10 +35,21 @@
     </div>
 
     <div id='bottom-bar'>
-      <audio id="audio player" controls>
-        <source id="audio" src=""/>
-      </audio>
-      <i class="far fa-play-circle" id='play-button'></i>
+      <div id="audio-player-container">
+        <audio id="audio player" preload="metadata">
+          <source id="audio" src=""/>
+        </audio>
+        <div id="seek-info">
+          <input type="range" id="seek-slider" max="100" value="0">
+          <span id="current-time">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+        <div id="media-controls">
+          <i class="far fa-play-circle media-control" id='play-button'></i>
+          <i class="fas fa-volume-up media-control" id='volume-button'></i>
+          <input class="media-control" type="range" id="volume-slider" max="100" value="100">
+        </div>
+      </div>
     </div>
 
     <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>

@@ -2,7 +2,8 @@
   --menu-button-hover-color: grey;
   --title-bar-color: #171616;
   --title-bar-context-menu-color: #171616;
-  --title-bar-context-menu-border-color: #0a0a0a
+  --title-bar-context-menu-border-color: #0a0a0a;
+  --slider-bar-previous-color: #9c0606;
 }
 
 html, body {
@@ -154,13 +155,134 @@ ul.dropdown-content li {
   display: flex;
 }
 
+#audio-player-container {
+  --seek-before-width: 0%;
+  --volume-before-width: 100%;
+  --buffered-width: 0%;
+
+  flex: 3;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.media-controls {
+  display: flex;
+  width: 100%;
+  flex-basis: 0;
+}
+
+.media-control {
+  flex: 1;
+  min-width: 0;
+  justify-content: center;
+}
+
+.media-control:first-child { margin-right: auto; }
+
+.media-control:last-child { margin-left: auto; }
+
+.media-control {
+  align-items: center;
+}
+
 #play-button {
   width: 50px;
   height: 50px;
   color: white;
-  font-size: 50px;
+  font-size: 45px;
+  flex: 2;
+  margin-top: 5px;
+}
+
+#volume-button {
+  width: 50px;
+  height: 50px;
+  color: white;
+  font-size: 45px;
+  flex: 2;
+  margin-top: 5px;
+}
+
+#seek-info {
+  width: 100%
+}
+
+#current-time {
+  float: left;
+  margin: -6px 0px 0px 6px;
+  color: white;
+}
+
+#duration {
+  float: right;
+  margin: -6px 6px 0px 0px;
+  color: white;
+}
+
+#volume-slider {
+    -webkit-appearance: none;
+    padding: 0;
+    position: absolute;
+    margin: 25px 0px 0px 10px;
+    outline: none;
+    height: 3px;
+    cursor: pointer;
+  }
+
+#seek-slider {
+    -webkit-appearance: none;
+    padding: 0;
+    position: absolute;
+    margin: -18px 0px 0px 0px;
+    outline: none;
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+  }
+
+#seek-slider::before {
+    padding: 0;
+    position: absolute;
+    margin: 0px 0px 0px 0px;
+    outline: none;
+    height: 3px;
+    cursor: pointer;
+    content: "";
+    width: var(--seek-before-width);
+    background-color: #b50000;
+}
+
+#seek-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    background: linear-gradient(to right, rgba(181, 0, 0, 0.5) var(--buffered-width), rgba(181, 0, 0, 0.2) var(--buffered-width));
+}
+
+#seek-slider::-webkit-slider-thumb {
+    position: relative;
+    -webkit-appearance: none;
+    box-sizing: content-box;
+    border: 1px solid var(--slider-bar-previous-color);
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    margin: -7px 0 0 0;
+}
+
+#seek-slider:active::-webkit-slider-thumb {
+    transform: scale(1.2);
+    background: var(--slider-bar-previous-color);
 }
 
 #play-button:hover {
+  color: black;
+}
+
+#volume-button:hover {
   color: black;
 }
